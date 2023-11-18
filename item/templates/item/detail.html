@@ -1,0 +1,22 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}{{ item.name }}
+{% endblock %} 
+{% block content %}
+<div class="grid grid-cols-5 gap-5 ">
+    <div class="col-span-3">
+        <img class="h-96 w-96" src ="{{ item.image.url }}" alt="">
+
+    </div>
+    <div class="p-5 bg-slate-200 rounded-xl" >
+         <h1 class="mb-5 text-3xl"><strong class="font-semibolt">{{ item.name}}</strong></h1>
+         <p class="text-xl">Price: {{item.price}}</p>
+         <p class="text-xl">Vendor: {{item.created_by.username}}</p>
+         <p>Product details:<br>
+            <span>{{ item.description }}</span>
+
+         </p>
+    </div>
+     <a href="#">Contact With</a>
+</div> 
+{% endblock %}
