@@ -5,9 +5,9 @@
      <div class=" grid grid-cols-3 gap-52 rounded-xl ">
           {% for item in items %}
           <div class="bg-slate-100 px-2 py-3 rounded-xl  hover:drop-shadow-2xl ">
-               <a href="{% url 'item:detail' item.id%}"></a>
+               
                <div>
-                    <img class="h-80 w-80" src ="{{ item.image.url  }}" alt="">
+                    <a href="{% url 'item:detail' item.id %}"><img class="lg:h-80 lg:w-80 md:h-72 md:w-72 " src ="{{ item.image.url  }}" alt=""></a>
                     <div>
                          <h2 class = "text-2xl">{{ item.name }}:{{ item.price }}$</h2>
                     </div>

@@ -3,20 +3,37 @@
 {% block title %}{{ item.name }}
 {% endblock %} 
 {% block content %}
-<div class="grid grid-cols-5 gap-5 ">
-    <div class="col-span-3">
-        <img class="h-96 w-96" src ="{{ item.image.url }}" alt="">
+<div class="grid grid-cols-5 gap-4 mt-6">
+    <div class="col-span-2">
+        <img class=" h-96 w-96" src ="{{ item.image.url }}" alt="">
 
     </div>
-    <div class="p-5 bg-slate-200 rounded-xl" >
+    <div class="p-5 bg-slate-200 rounded-xl col-span-3" >
          <h1 class="mb-5 text-3xl"><strong class="font-semibolt">{{ item.name}}</strong></h1>
          <p class="text-xl">Price: {{item.price}}</p>
          <p class="text-xl">Vendor: {{item.created_by.username}}</p>
-         <p>Product details:<br>
+         <p class=" py-3">Product details:<br>
             <span>{{ item.description }}</span>
 
          </p>
+         <a href="#" class="bg-teal-200 px-4 py-2 rounded-xl">Contact Vendor</a>
     </div>
-     <a href="#">Contact With</a>
+     
 </div> 
+<div class="mt-6 px-2 py-12 bg-gray-200 flex flex-col items-center justify-between ">
+    <h2 class="mb-12 text-2xl text-center">RELATED PRODUCTS</h2>
+    <div class=" grid grid-cols-3 gap-52 rounded-xl ">
+         {% for item in related_items %}
+         <div class="bg-slate-100 px-2 py-3 rounded-xl  hover:drop-shadow-2xl ">
+              
+              <div>
+                <a href="{% url 'item:detail' item.id %}"><img class="h-80 w-80" src ="{{ item.image.url  }}" alt=""></a>
+                   <div>
+                        <h2 class = "text-2xl">{{ item.name }}:{{ item.price }}$</h2>
+                   </div>
+              </div>
+         </div>
+         {% endfor %}
+    </div>
+</div>
 {% endblock %}
