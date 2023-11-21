@@ -1,0 +1,37 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Sign Up {% endblock %}
+{% block content %}
+ <div class = "w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+    <h1 class="mb-6 text-3xl text-amber-500" >Sign up</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        <div>
+            <lebel class="inline-block mb-2">User_Name</lebel><br>
+            <input id= "Your_Name" type="text" name="Your_Name" maxlength="100" required>
+            {{ form.username }}
+        </div>
+        <div>
+            <lebel class="inline-block mb-2">Email</lebel><br>
+            <input id= "Your_Name" type="text" name="Your_Name" maxlength="100" required>
+            
+            {{ form.email }}
+        </div>
+        <div>
+            <lebel class="inline-block mb-2">password</lebel><br>
+            <input id="Your_Password" type="password" name="Your_Password" maxlength="100" required class="mb-6 rounded w-200 px-3 py-2 border border-b-2 border-solid border-ccc transition-all duration-300 ease-in-out box-border text-base" placeholder="Password" onmouseover="this.style.borderBottomColor='#3498db'; this.style.width='300px';" onmouseout="this.style.borderBottomColor='#ccc'; this.style.width='200px';">
+
+            {{ form.password1 }}
+        </div>
+        <div>
+            <lebel class="inline-block mb-2">Re-enter_Password</lebel><br>
+            <input id="Your_Password" type="password" name="Your_Password" maxlength="100" required class="mb-6 rounded w-200 px-3 py-2 border border-b-2 border-solid border-ccc transition-all duration-300 ease-in-out box-border text-base" placeholder="Re-enter_Password" onmouseover="this.style.borderBottomColor='#3498db'; this.style.width='300px';" onmouseout="this.style.borderBottomColor='#ccc'; this.style.width='200px';">
+
+            {{ form.password2 }}
+        </div>
+    </form>
+    <button class="transition duration-300 ease-in-out py-3 px-6 bg-teal-300 hover:bg-teal-500 rounded-xl transform hover:scale-105 focus:outline-none focus:ring focus:border-blue-300">
+        Register
+    </button>
+    
+ </div>
+ {% endblock %}
