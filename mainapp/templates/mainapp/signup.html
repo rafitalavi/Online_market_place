@@ -1,37 +1,33 @@
 {% extends 'mainapp/base.html' %}
 {% block title %}Sign Up {% endblock %}
 {% block content %}
- <div class = "w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
-    <h1 class="mb-6 text-3xl text-amber-500" >Sign up</h1>
+ <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+    <h1 class="mb-6 text-3xl text-amber-500">Sign up</h1>
     <form method="post" action=".">
         {% csrf_token %}
         <div>
-            <lebel class="inline-block mb-2">User_Name</lebel><br>
-            
-            {{ form.username }}
+            <label class="inline-block mb-2">User_Name</label><br>
+            {{ signup_form.username }}
         </div>
         <div>
-            <lebel class="inline-block mb-2">Email</lebel><br>
-            
-            
-            {{ form.email }}
+            <label class="inline-block mb-2">Email</label><br>
+            {{ signup_form.email }}
         </div>
         <div>
-            <lebel class="inline-block mb-2">password</lebel><br>
-            
-            {{ form.password1 }}
+            <label class="inline-block mb-2">password</label><br>
+            {{ signup_form.password1 }}
         </div>
         <div>
-            <lebel class="inline-block mb-2">Re-enter_Password</lebel><br>
-           
-            {{ form.password2 }}
+            <label class="inline-block mb-2">Re-enter_Password</label><br>
+            {{ signup_form.password2 }}
         </div>
-        {% if form.errors or form.non_field_errors %}
+        
+        {% if signup_form.errors or signup_form.non_field_errors %}
         <div class="mb-3 p-6 bg-red-100 rounded-xl">
-            {% for field in form %}
+            {% for field in signup_form %}
                 {{ field.errors }}
             {% endfor %}
-            {{ form.non_field_errors }}    
+            {{ signup_form.non_field_errors }}    
         </div>
         {% endif %}
 
