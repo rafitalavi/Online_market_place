@@ -9,6 +9,13 @@ def index(request):
 def contact(request):
     return render(request,'mainapp/contact.html')
 def signup(request):
-    signup_form = SignupForm()
+    if request.method == 'POST':
+        signup_form = SignupForm(request.POST)
+        if signup_form.is_valid():
+            signup_form.save()
+            return redirect('/login/')
+    else:    
+
+         signup_form = SignupForm()
     return render(request, 'mainapp/signup.html',{'signup_form':signup_form})   
  
