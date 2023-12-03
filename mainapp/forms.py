@@ -16,5 +16,8 @@ class SignupForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Re_entered_password', 'class': 'mb-6 w-full px-6 py-4 rounded-xl outline-none'}))
 
 class LoginForm(AuthenticationForm):
+    # class Meta:
+    #     model = User
+    #     fields = ('username', 'password')
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Your_Username', 'class': 'mb-6 w-full px-6 py-4 rounded-xl outline-none'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Your_Password', 'class': 'mb-6 w-full px-6 py-4 rounded-xl outline-none'}))
