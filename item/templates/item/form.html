@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<h1 class="mb-5 text-3xl">{{ title }}</h1>
+<form action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="m-5">
+        {{ form.as_p }}
+    </div>
+    {% if signup_form.errors or signup_form.non_field_errors %}
+    <div class="mb-3 p-6 bg-red-100 rounded-xl">
+        {% for field in signup_form %}
+            {{ field.errors }}
+        {% endfor %}
+        {{ signup_form.non_field_errors }}    
+    </div>
+    {% endif %}
+
+
+<button class="m-5 transition duration-300 ease-in-out py-3 px-6 bg-teal-300 hover:bg-teal-500 rounded-xl transform hover:scale-105 focus:outline-none focus:ring focus:border-blue-300">
+    Create_Item
+</button>
+</form>
+{% endblock %}
