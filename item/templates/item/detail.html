@@ -12,11 +12,22 @@
          <h1 class="mb-5 text-3xl"><strong class="font-semibolt">{{ item.name}}</strong></h1>
          <p class="text-xl">Price: {{item.price}}</p>
          <p class="text-xl">Vendor: {{item.created_by.username}}</p>
+         {% if item.description %}
          <p class=" py-3">Product details:<br>
             <span>{{ item.description }}</span>
 
          </p>
+         {% endif %}
+         {% if request.user == item.created_by %}
+         <div>
+          <button class="px-6 py-4 border-xl rounded-xl bg-white">Edit</button>
+          <button class="px-6 py-4 border-xl rounded-xl bg-red-500">Delete</button>
+
+         </div>
+
+         {% else %}
          <a href="#" class="bg-teal-200 px-4 py-2 rounded-xl">Contact Vendor</a>
+         {% endif %}
     </div>
      
 </div> 
