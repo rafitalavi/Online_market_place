@@ -13,3 +13,16 @@ class NewItemForm(forms.ModelForm):
             'price':forms.TextInput(attrs={'class' :FORM_INPUT_CLASSES}),
             'image':forms.FileInput(attrs={'class' :FORM_INPUT_CLASSES}),
             }
+        
+
+class EditItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = ('category', 'name', 'description', 'price', 'image','is_sold', )
+        widgets = {
+            'category':forms.Select(attrs={'class' :FORM_INPUT_CLASSES}),
+            'name':forms.TextInput(attrs={'class' :FORM_INPUT_CLASSES}),
+            'description':forms.Textarea(attrs={'class' :FORM_INPUT_CLASSES}),
+            'price':forms.TextInput(attrs={'class' :FORM_INPUT_CLASSES}),
+            'image':forms.FileInput(attrs={'class' :FORM_INPUT_CLASSES}),
+            }        

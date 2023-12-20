@@ -20,8 +20,8 @@
          {% endif %}
          {% if request.user == item.created_by %}
          <div>
-          <button class="px-6 py-4 border-xl rounded-xl bg-white">Edit</button>
-          <button class="px-6 py-4 border-xl rounded-xl bg-red-500">Delete</button>
+          <a href="{% url 'item:edit' item.id  %}"class="px-6 py-4 border-xl rounded-xl bg-white">Edit</a>
+          <a href="{% url 'item:delete' item.id  %}" class="px-6 py-4 border-xl rounded-xl bg-red-500">Delete</a>
 
          </div>
 

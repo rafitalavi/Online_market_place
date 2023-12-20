@@ -15,10 +15,16 @@
         {{ signup_form.non_field_errors }}    
     </div>
     {% endif %}
+ 
+    {% if form.new %}
+    <button class="m-5 transition duration-300 ease-in-out py-3 px-6 bg-teal-300 hover:bg-teal-500 rounded-xl transform hover:scale-105 focus:outline-none focus:ring focus:border-blue-300">
+        Create Item
+    </button>
+    {% else %}
+    <button class="m-5 transition duration-300 ease-in-out py-3 px-6 bg-teal-300 hover:bg-teal-500 rounded-xl transform hover:scale-105 focus:outline-none focus:ring focus:border-blue-300">
+        Update Item
+    </button>
+    {% endif %}
 
-
-<button class="m-5 transition duration-300 ease-in-out py-3 px-6 bg-teal-300 hover:bg-teal-500 rounded-xl transform hover:scale-105 focus:outline-none focus:ring focus:border-blue-300">
-    Create_Item
-</button>
 </form>
 {% endblock %}
